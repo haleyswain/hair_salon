@@ -8,8 +8,13 @@ class Client
   end
 
   define_method(:save) do
-    result = DB.exec("INSERT INTO clients (name, stylist_id) VALUES ('#{@name}', #{@stylist_id}) RETURNING id;")
+    result = DB.exec("INSERT INTO clients (name) VALUES ('#{@name}') RETURNING id;")
     @id = result.first().fetch("id").to_i()
+  end
+
+  define_method(:update) do |attributes|
+    @name = attributes.fetch(:name, @name)
+    DB.exec("UPDATE stylists SET name = '#{@name}' WHERE id = #{self.id};")
   end
 
   define_method(:==) do |another_client|
@@ -28,6 +33,13 @@ class Client
     clients
   end
 
-
-
+  define_singleton_method(:find) do |id|
+    found_client = nil
+    Client.all().each() do |client|
+      if client.id().==(id)
+        found_client = client
+      end
+    end
+    found_client
+  end
 end

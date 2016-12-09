@@ -1,4 +1,5 @@
 require('spec_helper')
+require('pry')
 
 describe(Stylist) do
   describe(".all") do
@@ -35,13 +36,23 @@ describe("#clients") do
     it("returns an array of clients for that stylist") do
       test_stylist = Stylist.new({:name => "Edward Scissorhands", :id => nil})
       test_stylist.save()
-      test_client = Client.new({:id => nil, :name => "Dr Seuss", :stylist_id => test_stylist.id()})
+      test_client = Client.new({:name => "Dr Seuss", :id => nil, :stylist_id => test_stylist.id()})
       test_client.save()
-      test_client2 = Client.new({:id => nil, :name => "Harry Potter", :stylist_id => test_stylist.id()})
+      test_client2 = Client.new({:name => "Harry Potter", :id => nil, :stylist_id => test_stylist.id()})
       test_client2.save()
       expect(test_stylist.clients()).to(eq([test_client, test_client2]))
     end
   end
+
+  describe('#update') do
+   it('will update a stylist when the user wants to change the database') do
+     test_stylist1 = Stylist.new({:id => nil, :name => 'Edward Scissorhands'})
+     test_stylist1.save()
+     test_stylist1.update({:name => "Murphy"})
+     expect(test_stylist1.name()).to(eq("Murphy"))
+    end
+  end
+
 
   describe("#id") do
     it("sets its ID when you save it") do
@@ -59,6 +70,15 @@ describe("#clients") do
       test_stylist2.save()
       test_stylist1.delete()
       expect(Stylist.all()).to(eq([test_stylist2]))
+    end
+  end
+  describe(".find") do
+    it("returns a stylist by its ID") do
+      test_stylist = Stylist.new({:name => "Edward Scissorhands", :id => nil})
+      test_stylist.save()
+      test_stylist2 = Stylist.new({:name => "Suzie Stylist", :id => nil})
+      test_stylist2.save()
+      expect(Stylist.find(test_stylist2.id())).to(eq(test_stylist2))
     end
   end
 end
