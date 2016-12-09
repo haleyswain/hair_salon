@@ -1,21 +1,32 @@
-<% if @stylists.any?() %>
+  <h2><%= @stylist.name()%></h2>
 
-     <ul>
-       <% @stylists.each() do |stylist| %>
-       <li><a href="/stylist_list/<%= stylist.id()%>"><%= stylist.name() %></a> </li>
-       <% end %>
-     </ul>
+  <% if @clients.any?() %>
+    <h4><%= @stylist.name()%>'s Clients:</h4>
+        <ul>
+        <% @clients.each() do |client| %>
+          <li><a href="/client_list<%= client.id %>"><%= client.name() %></a></li>
+        <% end %>
+      </ul>
+      <% else %>
+    <h4><%= @stylist.name()%> doesn't appear to have any clients. Add some below!</h3>
+    <% end %>
 
-     <% else %>
-      </h4>There are currently no stylists at Haley's Hair Salon!<h4>
-     <% end %>
+    <form action='/stylist/<%= @stylist.id() %>' method ='post'>
+     <input id="stylist_id" name="stylist_id" type="hidden" value="<%= @stylist.id() %>">
+     <label for='name'>Stylist Name:</label>
+     <input id='name' name='name' type='text' class='form-control'>
 
-     <h2> Add a new Stylist </h2>
+     <button type="submit" class="btn btn-default">Add New</button>
+   </form>
 
-      <form action="/stylist_list" method="post">
-        <label for = 'new_stylist'>Enter a Stylist's name here:</label>
-        <input id="new_stylist" name="new_stylist" type="text">
-        <button type="submit">Add list</button>
+   <h4>Remove <%= @stylist.name()%> from this Salon:</h4>
+
+      <form action='/stylist/<%= @stylist.id() %>/delete' method='post'>
+         <input name="_method" type="hidden" value="delete">
+         <button class='btn btn-default'>Delete this stylist</button>
       </form>
-
-      <a href="/">click here to return to the home page</a>
+    </br>
+    <a href="/">Return to the home page</a>
+  </br>
+  <a href="/stylist_list">View the list of stylists</a>
+</div>

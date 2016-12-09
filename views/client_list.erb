@@ -1,0 +1,17 @@
+<h3>List of Clients</h3>
+
+<% if @clients.any?() %>
+   <ul>
+     <% @clients.each() do |client| %>
+     <li><a href="/client_list/<%= client.id()%>"><%= client.name() %></a> </li>
+     <% end %>
+   </ul>
+
+   <% else %>
+
+   <p>Sadly, we dont have any clients right now :(</p>
+
+   <% end %>
+
+   <a href = '/'> Return to the home page</a>
+  

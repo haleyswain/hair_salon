@@ -2,6 +2,8 @@ require("rspec")
 require("pg")
 require("stylist")
 require("client")
+require('sinatra')
+require('sinatra/contrib')
 
 DB = PG.connect({:dbname => "hair_salon_test"})
 
