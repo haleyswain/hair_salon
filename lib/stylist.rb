@@ -28,8 +28,8 @@ define_method(:save) do
 end
 
 define_method(:==) do |another_stylist|
-    self.name() == (another_stylist.name()) && (self.id().==(another_stylist.id()))
-  end
+  self.name() == (another_stylist.name()) && (self.id().==(another_stylist.id()))
+end
 
 
  define_method(:delete) do
