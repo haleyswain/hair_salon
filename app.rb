@@ -32,8 +32,8 @@ end
 
 post('/stylist/:id') do
   name = params.fetch('name')
-  stylist_id = Stylist.find(params.fetch('stylist_id').to_i())
-  @stylist = Stylist.find(stylist_id)
+  stylist_id = params.fetch('stylist_id').to_i()
+  @stylist = Stylist.find(stylist_id.to_i())
   @clients = Client.new({:id => nil, :name => name, :stylist_id => stylist_id})
   @clients.save()
   @clients = @stylist.clients()
