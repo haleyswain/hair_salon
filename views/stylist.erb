@@ -8,7 +8,7 @@
         <% end %>
       </ul>
       <% else %>
-    <h4><%= @stylist.name()%> doesn't appear to have any clients. Add some below!</h3>
+    <h4><%= @stylist.name()%> doesnt have any clients yet! Add your name below!</h3>
     <% end %>
 
     <form action='/stylist/<%= @stylist.id() %>' method ='post'>
@@ -19,7 +19,7 @@
      <button type="submit" class="btn btn-default">Add New</button>
    </form>
 
-   <h4>Remove <%= @stylist.name()%> from this Salon:</h4>
+   <h4>Remove <%= @stylist.name()%> </h4>
 
       <form action='/stylist/<%= @stylist.id() %>/delete' method='post'>
          <input name="_method" type="hidden" value="delete">
