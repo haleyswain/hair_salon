@@ -13,8 +13,8 @@ class Client
   end
 
   define_method(:update) do |attributes|
-    @name = attributes.fetch(:name, @name)
-    DB.exec("UPDATE stylists SET name = '#{@name}' WHERE id = #{self.id};")
+    @name = attributes.fetch(:name,@name)
+    DB.exec("UPDATE clients SET name = '#{@name}' WHERE id = #{self.id};")
   end
 
   define_method(:==) do |another_client|

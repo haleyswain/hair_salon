@@ -1,1 +1,5 @@
-
+.jumbotron {
+  background-color: #e6e6ff;
+  margin-top: 20px;
+  font-family: monospace;
+}

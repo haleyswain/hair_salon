@@ -18,8 +18,8 @@ define_singleton_method(:all) do
   end
 
 define_method(:update) do |attributes|
-  @name = attributes.fetch(:name, @name)
-  DB.exec("UPDATE stylists SET name = '#{@name}' WHERE id = #{self.id};")
+  @name = attributes.fetch(:name)
+  DB.exec("UPDATE stylists SET name = '#{@name}' WHERE id = #{@id};")
 end
 
 define_method(:save) do
