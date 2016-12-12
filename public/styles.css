@@ -1,5 +1,14 @@
 .jumbotron {
-  background-color: #e6e6ff;
+  background-image: url("/img/Spa.jpg");
+  background-size: cover;
   margin-top: 20px;
   font-family: monospace;
+  font-weight: bolder;
+  color: black;
+  text-align: center;
+}
+
+body {
+  background-color: #cfd8dc;
+  text-align: center;
 }

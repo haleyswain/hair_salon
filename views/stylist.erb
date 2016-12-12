@@ -19,6 +19,15 @@
      <button type="submit" class="btn btn-default">Add New</button>
    </form>
 
+   <h4> Edit <%= @stylist.name()%>'s Name </h4>
+   <form action="/stylist_list/<%= @stylist.id() %>/edit" method="post" class="form-inline">
+     <input name = '_method' type = 'hidden' value = 'patch'>
+     <label for ="edit_stylist"></label>
+     <input id = 'edit_stylist' name = 'edit_stylist' type = 'text' class = 'form_control'></input>
+     <button type = 'submit'>Edit Name</button>
+   </form>
+
+
 
    <h4>Remove <%= @stylist.name()%> </h4>
 

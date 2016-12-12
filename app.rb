@@ -48,8 +48,8 @@ delete('/stylist/:id/delete') do
   erb(:stylist_list)
 end
 
-patch('/stylist/:id/edit') do
-  name = params.fetch("edit_name")
+patch('/stylist_list/:id/edit') do
+  name = params.fetch("edit_stylist")
   @stylist = Stylist.find(params.fetch("id").to_i())
   @stylist.update({:name => name})
   @clients = @stylist.clients()

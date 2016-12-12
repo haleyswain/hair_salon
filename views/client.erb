@@ -1,6 +1,6 @@
 <h3><%= @client.name() %></h3>
 
-<h4>Edit this clients information</h4>
+<h4>Edit this client's name:</h4>
 
 <form action="/client_list/<%= @client.id() %>/edit" method="post" class="form-inline">
   <input name = '_method' type = 'hidden' value = 'patch'>
@@ -8,13 +8,13 @@
   <input id = 'edit_client' name = 'edit_client' type = 'text' class = 'form_control'></input>
   <button type = 'submit'>Edit</button>
 </form>
-
-<h4> Remove a client from the database </h4>
+<br>
  <form action='/client_list/<%= @client.id() %>/delete' method='post'>
    <input name = '_method' type = 'hidden' value = 'delete'>
    <button type = 'submit'>Remove this client</button>
  </form>
-
- <a href = '/'>Return to Home Page</a>
- <a href = '/client_list'>Return to the list of clients</a>
- 
+<br>
+ <a href = '/'><button type = 'submit'>Return to Home Page</a></button>
+ <br>
+ <br>
+ <a href = '/client_list'><button type = 'submit'>Return to the list of clients</a></button>

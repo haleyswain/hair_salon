@@ -1,5 +1,7 @@
+<h3> Stylists:</h3>
+
 <% if @stylists.any?() %>
-  
+
      <ul>
        <% @stylists.each() do |stylist| %>
        <li><a href="/stylist_list/<%= stylist.id()%>"><%= stylist.name() %></a> </li>
@@ -10,12 +12,12 @@
       </h4>There are currently no stylists at Haley's Hair Salon!<h4>
      <% end %>
 
-     <h2> Add a new Stylist </h2>
+     <h2 class = 'center-align'> Add a new Stylist </h2>
 
-      <form action="/stylist_list" method="post">
+      <form action="/stylist_list" method="post" class = 'center-align'>
         <label for = 'new_stylist'>Enter a Stylist's name here:</label>
         <input id="new_stylist" name="new_stylist" type="text">
         <button type="submit">Add a new stylist</button>
       </form>
-
-      <a href="/">click here to return to the home page</a>
+      <br>
+      <center><a href="/">click here to return to the home page</a></center>
