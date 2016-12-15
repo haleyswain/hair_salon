@@ -47,13 +47,13 @@ end
  end
 
  define_method(:clients) do
-     stylists_clients = []
-     clients = DB.exec("SELECT * FROM clients WHERE stylist_id = #{self.id()};")
-     clients.each() do |client|
-       name = client.fetch("name")
-       stylist_id = client.fetch("stylist_id").to_i()
-       id = client.fetch('id').to_i()
-       stylists_clients.push(Client.new({:id => id, :name => name, :stylist_id => stylist_id}))
+   stylists_clients = []
+   clients = DB.exec("SELECT * FROM clients WHERE stylist_id = #{self.id()};")
+   clients.each() do |client|
+     name = client.fetch("name")
+     stylist_id = client.fetch("stylist_id").to_i()
+     id = client.fetch('id').to_i()
+     stylists_clients.push(Client.new({:id => id, :name => name, :stylist_id => stylist_id}))
      end
      stylists_clients
    end

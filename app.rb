@@ -70,8 +70,6 @@ get('/client_list') do
   erb(:client_list)
 end
 
-
-
 get('/client_list/:id') do
   @client = Client.find(params.fetch("id").to_i())
   erb(:client)
