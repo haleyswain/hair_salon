@@ -18,7 +18,7 @@ get('/stylist_list') do
 end
 
 post('/stylist_list') do
-  name = params.fetch('new_stylist')
+  name = params.fetch('new-stylist')
   stylist = Stylist.new(:name => name, :id => nil)
   stylist.save()
   @stylists = Stylist.all()
